@@ -22,16 +22,18 @@ class LoginPage:
 
 
         tk.Label(window, text="Password:").pack()
-        tk.Entry(window).pack()
+
+        self.password_entry = tk.Entry(window)
+        self.password_entry.pack()
 
 
-        self.btn = tk.Button(window, text="Enter", command=lambda: self.btn_click(window, self.username_entry))
+        self.btn = tk.Button(window, text="Enter", command=lambda: self.btn_click(window, self.username_entry, self.password_entry))
         self.btn.pack()
 
         tk.Label(window, text="Якщо логіна не буде у базі,\nми автоматично зареєструємо вас.").pack()
 
-    def btn_click(self, window, e):
-        return print(e.get())
+    def btn_click(self, window, user, password):
+        return print(user.get(), password.get())
 
 
 
