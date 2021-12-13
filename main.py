@@ -17,15 +17,15 @@ class LoginPage:
         tk.Label(text="Вітаємо у KalorCalc!").pack()
         tk.Label(window, text="Username:").pack()
 
-        self.entry = tk.Entry(window)
-        self.entry.pack()
+        self.username_entry = tk.Entry(window)
+        self.username_entry.pack()
 
 
         tk.Label(window, text="Password:").pack()
-        Entry(window).pack()
+        tk.Entry(window).pack()
 
 
-        self.btn = tk.Button(window, text="Enter", command=lambda: self.btn_click(window, self.entry))
+        self.btn = tk.Button(window, text="Enter", command=lambda: self.btn_click(window, self.username_entry))
         self.btn.pack()
 
         tk.Label(window, text="Якщо логіна не буде у базі,\nми автоматично зареєструємо вас.").pack()
