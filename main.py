@@ -10,7 +10,6 @@ class LoginPage:
         window.title("Login")
         window.geometry("300x200")
 
-        print("1")
 
 
         frame = ttk.Frame(window, padding=10)
@@ -33,7 +32,6 @@ class LoginPage:
 
     def btn_click(self, window, e):
         return print(e.get())
-    print("2")
 
 
 
