@@ -4,7 +4,6 @@
     <list default="true" id="d3df4b79-1f24-4298-839a-37e842defeee" name="Changes" comment="main.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/py/auth.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <workItem from="1639463329509" duration="1441000" />
       <workItem from="1640025439711" duration="43000" />
       <workItem from="1640268317214" duration="3436000" />
-      <workItem from="1640349023669" duration="4958000" />
+      <workItem from="1640349023669" duration="19303000" />
     </task>
     <task id="LOCAL-00001" summary="main.py">
       <created>1639246373621</created>
@@ -133,7 +132,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="main.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/kalorcalc$main.coverage" NAME="main Coverage Results" MODIFIED="1640358250856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/kalorcalc$main.coverage" NAME="main Coverage Results" MODIFIED="1640474823131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/kalorcalc$pycsv.coverage" NAME="pycsv Coverage Results" MODIFIED="1640353173231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pylib" />
   </component>
 </project>
