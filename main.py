@@ -24,22 +24,28 @@ class LoginPage:
         self.password_entry.pack()
 
         self.btn = ttk.Button(window, text="Enter",
-                             command=lambda: self.btn_click(window, self.username_entry, self.password_entry, root))
+                             command=lambda: self.auth(window, root, self.username_entry, self.password_entry))
         self.btn.pack()
 
         ttk.Label(window, text="Якщо логіна не буде у базі,\nми автоматично зареєструємо вас.").pack()
 
 
-    def auth(self, username_entry, window, root):
-        if username_entry.get() in pycsv.csv_auth_get('usernames'):
-            print("Ви зареєстровані")
+    def auth(self, window, root, username_entry, password_entry):
+        if username_entry.get() == "" or password_entry.get() == "":
+            ErrorEmptyPage(root)
+
+        elif username_entry.get() in pycsv.get_usernames():
+            if pycsv.check_password(username_entry.get(), password_entry.get()) == True:
+                print("Ok")
+            else:
+                ErrorWrongPasswordPage(root)
+
 
         else:
+            pycsv.auth_writer(username_entry.get(), password_entry.get())
             window.withdraw()
             ParametersPage(root)
 
-    def btn_click(self, window, user, password, root):
-        self.auth(self.username_entry, window, root)
 
 
 class ParametersPage:
@@ -116,6 +122,26 @@ class ParametersPage:
         ttk.Button(window, text="Quit", command=lambda: window.quit()).pack()
         ttk.Button(window, text="Test", command=lambda: print()).pack()
 
+
+class ErrorEmptyPage:
+    def __init__(self, root):
+        window = Toplevel(root)
+        window.title("Помилка!")
+        window.geometry('200x125')
+
+        frame = ttk.Frame(window, padding=10)
+
+        ttk.Label(window, text="Незаповнені всі поля").pack()
+
+class ErrorWrongPasswordPage:
+    def __init__(self, root):
+        window = Toplevel(root)
+        window.title("Помилка!")
+        window.geometry("225x150")
+
+        frame = ttk.Frame(window, padding=15)
+
+        ttk.Label(window, text="Користувач з таким ніком існує.\nНеправильний пароль").pack()
 
 
 def main():
