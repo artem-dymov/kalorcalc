@@ -24,11 +24,10 @@ class LoginPage:
         self.password_entry.pack()
 
         self.btn = ttk.Button(window, text="Enter",
-                             command=lambda: self.auth(window, root, self.username_entry, self.password_entry))
+                              command=lambda: self.auth(window, root, self.username_entry, self.password_entry))
         self.btn.pack()
 
         ttk.Label(window, text="Якщо логіна не буде у базі,\nми автоматично зареєструємо вас.").pack()
-
 
     def auth(self, window, root, username_entry, password_entry):
         if username_entry.get() == "" or password_entry.get() == "":
@@ -36,7 +35,8 @@ class LoginPage:
 
         elif username_entry.get() in pycsv.get_usernames():
             if pycsv.check_password(username_entry.get(), password_entry.get()) == True:
-                print("Ok")
+                window.withdraw()
+                MenuPage(root)
             else:
                 ErrorWrongPasswordPage(root)
 
@@ -47,10 +47,8 @@ class LoginPage:
             ParametersPage(root)
 
 
-
 class ParametersPage:
     def __init__(self, root):
-
         window = Toplevel(root)
         window.title("Parameters")
         window.geometry('500x500')
@@ -76,7 +74,6 @@ class ParametersPage:
 
         var_sex = tk.IntVar()
         var_sex.set(1)
-
 
         r_btn_male = ttk.Radiobutton(window, text="Чоловіча", variable=var_sex, value=1)
         r_btn_male.pack()
@@ -118,30 +115,38 @@ class ParametersPage:
         r_btn_want_gain = ttk.Radiobutton(window, variable=var_want, value=3, text="Хочу набрати вагу")
         r_btn_want_gain.pack()
 
-
         ttk.Button(window, text="Quit", command=lambda: window.quit()).pack()
-        ttk.Button(window, text="Test", command=lambda: print()).pack()
 
 
 class ErrorEmptyPage:
     def __init__(self, root):
-        window = Toplevel(root)
-        window.title("Помилка!")
-        window.geometry('200x125')
+        self.window = Toplevel(root)
+        self.window.title("Помилка!")
+        self.window.geometry('200x125')
 
-        frame = ttk.Frame(window, padding=10)
+        frame = ttk.Frame(self.window, padding=10)
 
-        ttk.Label(window, text="Незаповнені всі поля").pack()
+        ttk.Label(self.window, text="Незаповнені всі поля").pack()
+
 
 class ErrorWrongPasswordPage:
     def __init__(self, root):
-        window = Toplevel(root)
-        window.title("Помилка!")
-        window.geometry("225x150")
+        self.window = Toplevel(root)
+        self.window.title("Помилка!")
+        self.window.geometry("225x150")
 
-        frame = ttk.Frame(window, padding=15)
+        frame = ttk.Frame(self.window, padding=15)
 
-        ttk.Label(window, text="Користувач з таким ніком існує.\nНеправильний пароль").pack()
+        ttk.Label(self.window, text="Користувач з таким ніком існує.\nНеправильний пароль").pack()
+
+
+class MenuPage:
+    def __init__(self, root):
+        self.window = Toplevel(root)
+        self.window.title("Меню")
+        self.window.geometry('400x300')
+
+        frame = ttk.Frame(self.window, padding=10)
 
 
 def main():
